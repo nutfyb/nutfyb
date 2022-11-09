@@ -44,6 +44,9 @@ export default {
 </script>
   
   <style lang="scss" scoped>
+  #mySidenav {
+    z-index: 9999;
+  }
   li.contact-address {
     font-size: 12px !important;
     padding-bottom: 15px;

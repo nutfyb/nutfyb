@@ -17,12 +17,12 @@
               organization together.
             </p>
             <a href="#Contact-me">
-              <button type="button" class="btn btn-outline-light">
+              <button type="button" class="btn btn-outline-light btn-contactme">
                 Contact me
               </button></a
             >
             <a href="https://drive.google.com/file/d/1ZhhGU99-JLarcE4I7vZt3EnVEejXDSx1/view?usp=sharing" target="_blank">
-            <button type="button" class="btn btn-outline-light">
+            <button type="button" class="btn btn-outline-light btn-contactme">
               Get Resume
             </button>
           </a>
@@ -62,6 +62,11 @@ export default {
 #home {
   height: 50%;
 }
+
+.btn-contactme {
+  border-radius: 0% !important;
+}
+
 .particle{
     position: absolute;
     top: 0;
@@ -293,6 +298,12 @@ export default {
 }
   .particle {
     top: 360px;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+  .particle {
+    top: 285px;
   }
 }
 </style>

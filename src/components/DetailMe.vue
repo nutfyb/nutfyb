@@ -1,7 +1,7 @@
 <template>
   <section class="section-banner section-shaped my-0 bg-color-1 section-detailme">
     <div class="container d-flex">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center content-skill-scetion">
         <div class="col-12 m-auto content-skill">
           <div class="content-skill-logo float-left text-white">
             <h2>My Skills and Expertise</h2>
@@ -135,6 +135,10 @@ export default {
 }
 .bg-color-1 {
   background-color: #21272f;
+}
+
+.content-skill-scetion {
+  z-index: 9997;
 }
 .content-skill {
   margin-bottom: 2.5rem;

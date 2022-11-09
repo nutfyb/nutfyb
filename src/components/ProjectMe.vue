@@ -1,6 +1,6 @@
 <template>
   <section class="section-banner section-shaped my-0 bg-color-1" id="project">
-    <div class="container">
+    <div class="container content-project">
       <div class="row justify-content-center">
         <div class="col-12 m-auto content-skill">
           <div class="content-skill-logo float-left text-white text-bold">
@@ -27,10 +27,15 @@
                     slideShadows: true,
                   }"
                   :pagination="true"
+                  :modules="modules"
+                  :navigation="true"
                 >
-                  <swiper-slide> <img src="../assets/img/mario_road.jpg" alt="me" class="img-center" /> </swiper-slide>
-                  <swiper-slide> <img src="../assets/img/nut.png" alt="me" class="img-center" /> </swiper-slide>
-                  <swiper-slide> <img src="../assets/img/nut.png" alt="me" class="img-center" /> </swiper-slide>
+                  <swiper-slide> <img src="../assets/img/gssd-project.png" /> </swiper-slide>
+                  <swiper-slide> <img src="../assets/img/kalenapp.png"/> </swiper-slide>
+                  <swiper-slide> <img src="../assets/img/maekornapp.png" /> </swiper-slide>
+                  <swiper-slide> <img src="../assets/img/HealthEducation.png" /> </swiper-slide>
+                  <swiper-slide> <img src="../assets/img/d2hdom.png" /> </swiper-slide>
+                  <swiper-slide> <img src="../assets/img/seniorweb.png" /> </swiper-slide>
                 </swiper>
               </div>
             </div>
@@ -46,9 +51,11 @@
 import { Swiper } from "../../node_modules/swiper/vue/swiper";
 import { SwiperSlide } from "../../node_modules/swiper/vue/swiper-slide";
 // Import Swiper styles
+import "swiper/css/navigation";
 import "../../node_modules/swiper/swiper.min.css";
 import "../../node_modules/swiper/modules/effect-coverflow/effect-coverflow.min.css";
 import "../../node_modules/swiper/modules/pagination/pagination.min.css";
+import { Navigation } from "swiper";
 import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from "swiper";
 SwiperCore.use([EffectCoverflow, Pagination, Autoplay]);
 export default {
@@ -56,11 +63,22 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    
+  },
+  setup() {
+    return {
+      modules: [Navigation],
+    };
   },
 };
 </script>
 
 <style>
+
+.content-project {
+  z-index: 99 !important;
+}
+
 h2 > span {
   color: #0e82f3;
 }
@@ -80,6 +98,11 @@ h2 > span {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
 }
 .swiper-slide:nth-child(1n) {
   background-color: palevioletred;
@@ -101,5 +124,11 @@ h2 > span {
 }
 .swiper-slide:nth-child(7n) {
   background-color: palegreen;
+}
+
+@media only screen and (max-width: 576px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
+  }
 }
 </style>

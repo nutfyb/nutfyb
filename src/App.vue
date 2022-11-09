@@ -1,7 +1,7 @@
 <template>
   <div>
+    <PageLoader />
     <NavigationMobile />
-    <!-- <PageLoader /> -->
     <div class="content" :class="{ open: showNav }">
       <div class="top-bar">
         <nav
@@ -30,10 +30,13 @@
       </div>
       <transition name="fade">
         <div id="pagetop" class="fixed" v-show="scY > 300" @click="toTop">
-          <div class="icontooltip">
-            <span class="tooltip">Up to page.</span>
-            <span><font-awesome-icon icon="fa-solid fa-circle-up" /></span>
-          </div>
+          <span>
+            <div class="arrow">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </span>
         </div>
       </transition>
     </div>
@@ -50,7 +53,7 @@ import DetailMe from "./components/DetailMe.vue";
 import HistoryExperience from "./components/HistoryExperience.vue";
 import ProjectMe from "./components/ProjectMe.vue";
 import SecFooter from "./components/SecFooter.vue";
-// import PageLoader from "./components/PageLoader.vue";
+import PageLoader from "./components/PageLoader.vue";
 import NavigationBar from "./components/NavigationBar.vue";
 import NavigationMobile from "./components/NavigationMobile.vue";
 export default {
@@ -81,7 +84,7 @@ export default {
     HistoryExperience,
     ProjectMe,
     SecFooter,
-    // PageLoader,
+    PageLoader,
     NavigationBar,
     NavigationMobile,
   },
@@ -110,6 +113,7 @@ export default {
   created() {
     this.handleView();
     window.addEventListener("resize", this.handleView);
+    document.title = "Portfolio | Anuthep";
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -123,15 +127,95 @@ html {
   scroll-behavior: smooth;
 }
 
+.section-banner {
+  z-index: 9998;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.arrow span {
+  display: block;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-bottom: 5px solid white;
+  border-right: 5px solid white;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animatearrow 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes animatearrow {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  right: 10px;
+  left: auto;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "next";
+  color: #fff;
+  font-size: 24px;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  content: "prev";
+  color: #fff;
+  font-size: 24px;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  left: 10px;
+  right: auto;
+}
+
 #pagetop {
   display: block;
   position: fixed;
-  right: -75px;
-  bottom: 10px;
+  right: -35px;
+  bottom: 65px;
   font-size: 40px;
   width: 10%;
   color: var(--white);
-  z-index: 9999;
+  z-index: 9998;
 }
 
 #pagetop:hover .tooltip {
@@ -196,15 +280,16 @@ html {
   color: var(--white);
 }
 
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1199px) {
   #pagetop {
-    right: -15px;
+    right: 0;
+    bottom: 40px;
   }
 }
 
 @media only screen and (max-width: 576px) {
   #pagetop {
-    right: 35px;
+    right: 0;
   }
   #pagetop:hover .tooltip {
     display: none;
@@ -212,8 +297,11 @@ html {
   div.container.res-mobile {
     margin-right: 20px;
   }
+  .arrow span {
+    width: 5.5vw;
+    height: 5.5vw;
 }
-
+}
 
 :root {
   --white: #ffffff;

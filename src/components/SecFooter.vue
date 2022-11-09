@@ -93,7 +93,7 @@ export default {
 
 <style lang="scss">
 .content-skill {
-  z-index: 9999;
+  z-index: 99;
 }
 
 .bg-color-3 {
@@ -365,6 +365,12 @@ export default {
 @media only screen and (max-width: 575px) {
   .box-animation li:nth-child(1) {
   left: 120px;
+}
+}
+
+@media only screen and (max-width: 412px) {
+  .box-animation li:nth-child(1) {
+    left: 40px;
 }
 }
 
