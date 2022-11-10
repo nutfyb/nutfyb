@@ -1,8 +1,8 @@
 <template>
   <section class="section-banner section-shaped my-0 bg-color-3" id="home">
-    <div class="container d-flex">
+    <div class="container d-flex content-detailme">
       <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 m-auto content-bio">
+        <div class="col-12 col-sm-12 col-md-6 m-auto content-bio">
           <div class="float-left text-white">
             <h6>Hello, I'm</h6>
             <h2>Anuthep Tayngam</h2>
@@ -28,8 +28,8 @@
           </a>
           </div>
         </div>
-        <div class="col-12 col-sm-6 img-frame">
-          <img src="../assets/img/nut.png" alt="me" class="img-center" />
+        <div class="col-12 col-sm-12 col-md-6">
+          <img src="../assets/img/nut.png" alt="me" class="img-me mx-auto d-block" />
             <ul class="particle">
               <li></li>
               <li></li>
@@ -56,11 +56,12 @@ export default {
 
 <style>
 
-/* .particle-container{ 
-    width: 100%;
-} */
+.img-me {
+    height: 510px;
+}
+
 #home {
-  height: 50%;
+    height: 510px;
 }
 
 .btn-contactme {
@@ -69,7 +70,7 @@ export default {
 
 .particle{
     position: absolute;
-    top: 0;
+    top: 35px;
     left: 0;
     width: 100%;
     height: 475px;
@@ -184,6 +185,11 @@ export default {
 
 /* ------------------------------------------------ */
 
+.frame-me {
+  width: 100%;
+  height: 100%;
+}
+
 .content-bio {
   z-index: 999;
 }
@@ -197,9 +203,6 @@ export default {
   margin-right: auto;
   width: 50%;
   z-index: 999;
-}
-.img-frame {
-  height: 100%;
 }
 .box-text {
   background-color: white;
@@ -278,8 +281,12 @@ export default {
     top: -55px;
   }
   #home {
-    height: 45vh;
+    height: 55vh;
   }
+  .img-me {
+    height: 50vh;
+    margin-top: 5vh;
+}
 }
 
 @media only screen and (max-width: 991px) {
@@ -291,6 +298,22 @@ export default {
   }
 }
 
+@media only screen and (max-width: 767px) {
+  #home {
+    height: 85vh;
+}
+  .particle {
+    top: 315px;
+  }
+  .content-detailme {
+    margin-top: 115px;
+}
+  .img-me {
+    height: 40vh;
+    margin-top: 0;
+}
+}
+
 
 @media only screen and (max-width: 575px) {
   #home {
@@ -299,11 +322,22 @@ export default {
   .particle {
     top: 360px;
   }
+  .img-me {
+    height: 40vh;
+    margin-top: 0;
+}
 }
 
 @media only screen and (max-width: 412px) {
   .particle {
     top: 285px;
   }
+  .content-detailme {
+    margin-top: 115px;
+}
+.img-me {
+    height: 40vh;
+    margin-top: 0px;
+}
 }
 </style>
