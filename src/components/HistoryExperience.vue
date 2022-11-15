@@ -215,7 +215,7 @@
                   <div class="ag-timeline-card_inner">
                     <div class="ag-timeline-card_info">
                       <div class="ag-timeline-card_title">
-                        Internship  | Jan - Apr 2022
+                        Synergy Corporation  | Jan - Apr 2022
                       </div>
                       <div class="ag-timeline-card_subtitle">
                         WEB DEVELOPER
